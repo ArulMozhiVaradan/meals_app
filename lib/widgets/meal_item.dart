@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals/screens/meal_detail_screen.dart';
+import '../screens/meal_detail_screen.dart';
 import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
@@ -8,8 +8,7 @@ class MealItem extends StatelessWidget {
   final String imageUrl;
   final int duration;
   final Complexity complexity;
-  final Affordability affordability;
-  final Function removeItem;
+  final Affordability affordability;  
 
   MealItem(
       {
@@ -18,8 +17,7 @@ class MealItem extends StatelessWidget {
       @required this.affordability,
       @required this.complexity,
       @required this.duration,
-      @required this.imageUrl,
-      @required this.removeItem
+      @required this.imageUrl,      
       });
 
   String get complexityText{
@@ -58,11 +56,12 @@ class MealItem extends StatelessWidget {
     Navigator.of(ctx).pushNamed(
       MealDetailScreen.routeNamed,
       arguments: id
-    ).then((result){
-      if(result != null){
-        removeItem(result);
-      }
-    });
+    );
+    // .then((result){
+    //   if(result != null){
+    //     removeItem(result);
+    //   }
+    // });
 
   }
   @override
